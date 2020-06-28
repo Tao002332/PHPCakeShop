@@ -38,11 +38,11 @@ class SpusController extends AdminAuthController
     {
         //
         $data=$request->json()->all();
-        $spu['data_flag']=ProductDataFlagCode::PUT_ON;
-        $spu['pv']=0;
+        $data['data_flag']=ProductDataFlagCode::PUT_ON;
+        $data['pv']=0;
         DB::beginTransaction();
         try {
-            $spu->create($data);
+            $spu=$spu->create($data);
             if(isset($data['skus']) && $data['skus']) {
                 foreach ($data['skus'] as $sku) {
                     $spu->skus()->create([
