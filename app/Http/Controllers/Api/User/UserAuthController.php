@@ -14,7 +14,7 @@ class UserAuthController extends ApiController
 {
     //
     public function __construct() {
-        $this->middleware('user.auth')->only('getInfo','editUserInfo');
+        $this->middleware('user.auth')->only('getInfo','editUserInfo','userChangePassword');
     }
 
     /** 管理员登录
