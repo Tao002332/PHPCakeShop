@@ -82,8 +82,8 @@ class UsersController extends ApiController
     }
 
     public function changeStatus($id,$value) {
-        $admin=User::find($id);
-        $admin->update(['data_flag'=>$value]);
+        $user=User::find($id);
+        $user->update(['data_flag'=>$value]);
     }
 
 

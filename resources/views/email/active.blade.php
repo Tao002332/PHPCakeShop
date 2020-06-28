@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<p>尊敬的{{$user->user_name}}，感谢你注册我们的网站，请于24小时内激活你的账户，过期失效。<a href="http://www.30zwtboot.com:8090/active?id={{$user->id}}&nickname={{$user->nickname }}">激活账户</a></p>
+<p>尊敬的{{$user->user_name}}，感谢你注册我们的网站，请于24小时内激活你的账户，过期失效。<a href="http://www.30zwtboot.com:8090/api/user/users/active?id={{$user->id}}&nickname={{$user->nickname }}">激活账户</a></p>
 </body>
 </html>

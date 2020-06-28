@@ -103,9 +103,10 @@ Route::group(['namespace'=>'Api'],function (){
             Route::get("logout","UserAuthController@logout")->name('users.logout');
             Route::get("getInfo","UserAuthController@getInfo")->name('users.getInfo');
             Route::put("changePassword","UserAuthController@changePassword")->name('users.changePassword');
+            Route::put("userChangePassword","UserAuthController@userChangePassword")->name('users.userChangePassword');
             Route::put("editUserInfo","UserAuthController@editUserInfo")->name('users.editUserInfo');
             Route::post('register','UserAuthController@register')->name('users.register');
-            Route::put('active','UserAuthController@active')->name('users.active');
+            Route::get('active','UserAuthController@active')->name('users.active');
             Route::post('handleForget','UserAuthController@handleForget')->name('users.handleForget');
         });
         /* 权限分开*/

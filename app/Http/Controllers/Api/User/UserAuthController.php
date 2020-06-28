@@ -75,6 +75,24 @@ class UserAuthController extends ApiController
     }
 
 
+    /**
+     * 用户修改密码
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function userChangePassword(Request $request) {
+        $data=$request->json()->all();
+        auth()->user()['password']=bcrypt($data['password']);
+        if(auth()->user()->update()) {
+            return  $this->success("修改成功");
+        } else {
+            return  $this->fail(ResponseCode::UPDATE_ERROR);
+        }
+    }
+
+
+
+
     /**发送 重置密码的邮箱
      * @param Request $request
      * @param User $user
@@ -121,6 +139,12 @@ class UserAuthController extends ApiController
         $res=$user->where('id','=',$id)->where('nickname','=',$nickname)->get();
         $this->changeStatus($id,UserDataFlagCode::OK);
         return view('email.wait',compact('user',$res));
+    }
+
+
+    public function changeStatus($id,$value) {
+        $user=User::find($id);
+        $user->update(['data_flag'=>$value]);
     }
 
 
