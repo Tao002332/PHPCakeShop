@@ -96,7 +96,7 @@ class OrdersController extends ApiController
     /**通过用户id查询订单
      * @return \Illuminate\Http\JsonResponse
      */
-        public function findByUid() {
+    public function findByUid() {
         $order=Order::where("user_id",auth()->user()['id'])->orderBy('created_at','desc')->orderBy('id','asc')->get();;
         return  $this->success("查询成功",$order);
     }
